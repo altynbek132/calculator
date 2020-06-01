@@ -3,9 +3,18 @@ import './App.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Screen from '../Screen/Screen';
+import Grid from '../Grid/Grid';
 
 const App = ({}) => {
-  return <div>App</div>;
+  return (
+    <main>
+      <div className="app">
+        <Screen />
+        <Grid />
+      </div>
+    </main>
+  );
 };
 
 const mapStateToProps = (state) => ({});
