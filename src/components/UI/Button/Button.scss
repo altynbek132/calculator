@@ -6,6 +6,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.2s;
+  border: 1px solid rgb(70, 181, 255);
 
   &:disabled {
     background-color: rgb(161, 161, 161);

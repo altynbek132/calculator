@@ -9,7 +9,7 @@ import Grid from '../Grid/Grid';
 const App = ({}) => {
   return (
     <main>
-      <div className="app">
+      <div className="App">
         <Screen />
         <Grid />
       </div>

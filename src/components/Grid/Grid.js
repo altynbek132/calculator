@@ -11,13 +11,17 @@ const Grid = ({ calc }) => {
     .fill(0)
     .map((_val, index) => index);
   const funcButtons = ['AC', '+/-', '%', '/', 'x', '-', '+', '=', '.'];
+  const buttons = ['AC', '+/-', '%', '/', 7, 8, 9, 'x', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
   return (
     <div className="Grid">
-      {[...numbers, ...funcButtons].map((value) => (
-        <div className="button-wrapper" key={value}>
-          <Button onClick={() => calc(value)}>{value}</Button>
-        </div>
-      ))}
+      {buttons.map((value) => {
+        const style = value === 0 ? { flexBasis: '50%' } : {};
+        return (
+          <div className="button-wrapper" style={style} key={value}>
+            <Button onClick={() => calc(value)}>{value}</Button>
+          </div>
+        );
+      })}
     </div>
   );
 };

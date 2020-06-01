@@ -17,7 +17,7 @@ const mathMap = {
 const normalizeNum = (number) => String(Number(number));
 
 export default (state = initialState, { type, payload }) => {
-  const { left, right, action, active, screen } = state;
+  const { left, right, action, active } = state;
 
   if (mathMap.hasOwnProperty(type)) {
     if (action) {
