@@ -5,12 +5,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../UI/Button';
 import { calc } from '../../store/actions/calculator';
+import KeyboardEventHandler from 'react-keyboard-event-handler';
 
 const Grid = ({ calc }) => {
-  const numbers = Array(10)
-    .fill(0)
-    .map((_val, index) => index);
-  const funcButtons = ['AC', '+/-', '%', '/', 'x', '-', '+', '=', '.'];
   const buttons = ['AC', '+/-', '%', '/', 7, 8, 9, 'x', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
   return (
     <div className="Grid">
@@ -22,6 +19,11 @@ const Grid = ({ calc }) => {
           </div>
         );
       })}
+      <KeyboardEventHandler
+        // 191, 111, 190, 110, 187, 61, 106, 107
+        handleKeys={['numeric', '*', '-', '+', '.', '/', 'Enter']}
+        onKeyEvent={(key, e) => (key === 'Enter' ? calc('=') : calc(key))}
+      />
     </div>
   );
 };
