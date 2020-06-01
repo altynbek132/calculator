@@ -10,6 +10,7 @@ import KeyboardEventHandler from 'react-keyboard-event-handler';
 const mapKeyboardToActions = {
   Enter: '=',
   Del: 'AC',
+  Backspace: 'BS',
 };
 
 const Grid = ({ calc }) => {
@@ -25,7 +26,7 @@ const Grid = ({ calc }) => {
         );
       })}
       <KeyboardEventHandler
-        handleKeys={['numeric', '*', '-', '+', '.', '/', 'Enter', 'Del']}
+        handleKeys={['numeric', '*', '-', '+', '.', '/', 'Enter', 'Del', 'Backspace']}
         onKeyEvent={(key, e) => {
           console.log('key - ', key);
           if (mapKeyboardToActions.hasOwnProperty(key)) {
