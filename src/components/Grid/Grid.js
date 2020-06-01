@@ -7,6 +7,11 @@ import Button from '../UI/Button';
 import { calc } from '../../store/actions/calculator';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
+const mapKeyboardToActions = {
+  Enter: '=',
+  Del: 'AC',
+};
+
 const Grid = ({ calc }) => {
   const buttons = ['AC', '+/-', '%', '/', 7, 8, 9, 'x', 4, 5, 6, '-', 1, 2, 3, '+', 0, '.', '='];
   return (
@@ -20,9 +25,15 @@ const Grid = ({ calc }) => {
         );
       })}
       <KeyboardEventHandler
-        // 191, 111, 190, 110, 187, 61, 106, 107
-        handleKeys={['numeric', '*', '-', '+', '.', '/', 'Enter']}
-        onKeyEvent={(key, e) => (key === 'Enter' ? calc('=') : calc(key))}
+        handleKeys={['numeric', '*', '-', '+', '.', '/', 'Enter', 'Del']}
+        onKeyEvent={(key, e) => {
+          console.log('key - ', key);
+          if (mapKeyboardToActions.hasOwnProperty(key)) {
+            calc(mapKeyboardToActions[key]);
+            return;
+          }
+          calc(key);
+        }}
       />
     </div>
   );
