@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
     git clone https://github.com/altynbek132/react-template.git react-project && cd react-project && yarn && yarn start
 
-## Install and run:
+## Install and ruin:
 
     yarn && yarn start
 
